@@ -1,13 +1,20 @@
-from flask import Flask, jsonify,send_from_directory
+
+from flask import Flask, jsonify, request, abort, send_from_directory
 from flask_cors import CORS
 from shazamio import Shazam, GenreMusic
 import asyncio
 import os
+from dotenv import load_dotenv
+from functools import wraps
 
+load_dotenv()
 app = Flask(__name__)
 CORS(app)  # This will enable CORS for all routes
 
+
 API_KEY = os.getenv('API_KEY')
+
+
 
 def run_asyncio(func):
     new_loop = asyncio.new_event_loop()
@@ -18,21 +25,25 @@ def run_asyncio(func):
         new_loop.close()
 
 @app.route('/top_songs', methods=['GET'])
+
 def top_songs():
     songs = run_asyncio(Shazam().top_world_tracks(limit=10))
     return jsonify(songs)
 
 @app.route('/top_songs/<country>', methods=['GET'])
+
 def top_songs_country(country):
     songs = run_asyncio(Shazam().top_country_tracks(country, 5))
     return jsonify(songs)
 
 @app.route('/top_songs/<country>/<genre>', methods=['GET'])
+
 def top_songs_country_genre(country, genre):
     songs = run_asyncio(Shazam().top_country_genre_tracks(country_code=country, genre=GenreMusic[genre.upper()], limit=4))
     return jsonify(songs)
 
 @app.route('/top_songs/genre/<genre>', methods=['GET'])
+
 def top_songs_genre(genre):
     songs = run_asyncio(Shazam().top_world_genre_tracks(genre=GenreMusic[genre.upper()], limit=10))
     return jsonify(songs)
@@ -57,8 +68,8 @@ def forbidden(e):
 def unauthorized(e):
     return jsonify(error=str(e)), 401
 
-def main(request):
-    return app
+def main():
+    app.run(debug=True, host="0.0.0.0", port=5003)
 
 if __name__ == "__main__":
     main()

@@ -1,19 +1,39 @@
 {
-    "schema_version": "v1",
-    "name_for_human": "TODO Plugin (no auth)",
-    "name_for_model": "todo",
-    "description_for_human": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
-    "description_for_model": "Plugin for managing a TODO list, you can add, remove and view your TODOs.",
-    "auth": {
-      "type": "none"
-    },
-    "api": {
-      "type": "openapi",
-      "url": "http://localhost:5003/openapi.yaml",
-      "is_user_authenticated": false
-    },
-    "logo_url": "http://localhost:5003/logo.png",
-    "contact_email": "legal@example.com",
-    "legal_info_url": "http://example.com/legal"
-  }
-  
+  "schema_version": "v1",
+  "name_for_human": "Trending Music",
+  "name_for_model": "trending_music",
+  "description_for_human": "Plugin for finding the trending music across the world, by genre, countries, and top songs globally.",
+  "description_for_model": "Find the most trending music around the world. You can search by country, genre, or globally. Use the country's ISO 3166-1 alpha-2 code for country-specific searches. For genre-specific searches, use the genre's specific code. Available genres: POP, HIP_HOP_RAP, DANCE, ELECTRONIC, RNB_SOUL, ALTERNATIVE, ROCK, LATIN, FILM_TV_STAGE, COUNTRY, AFRO_BEATS, WORLDWIDE, REGGAE_DANCE_HALL, HOUSE, K_POP, FRENCH_POP, SINGER_SONGWRITER, REGIONAL_MEXICANO.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "ui": {
+    "elements": [
+      {
+        "type": "image",
+        "url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/logo.png",
+        "altText": "Trending Music Logo"
+      },
+      {
+        "type": "text",
+        "content": "Welcome to the Trending Music Plugin!"
+      },
+      {
+        "type": "text",
+        "content": "This plugin allows you to get trending music from Shazam."
+      },
+      {
+        "type": "text",
+        "content": "To use this plugin, just ask question about the most trending music around the world, by genre, country or globally"
+      }
+    ]
+  },
+  "logo_url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/logo.png",
+  "contact_email": "macetenth@gmail.com",
+  "legal_info_url": "http://example.com/legal"
+}

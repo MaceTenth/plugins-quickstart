@@ -1,0 +1,98 @@
+openapi: 3.0.1
+info:
+  title: Shazam Music Plugin
+  description: A plugin that allows the user to get top songs from Shazam. It provides global top songs, top songs by country, top songs by genre, and top songs by country and genre.
+  version: 'v1'
+servers:
+  - url: https://6888-109-186-55-94.ngrok-free.app
+paths:
+  /top_songs:
+    get:
+      operationId: topSongs
+      summary: Get the top songs globally
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /top_songs/{country}:
+    get:
+      operationId: topSongsCountry
+      summary: Get the top songs for a specific country
+      parameters:
+      - in: path
+        name: country
+        schema:
+            type: string
+        required: true
+        description: The country for which to get the top songs.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /top_songs/{country}/{genre}:
+    get:
+      operationId: topSongsCountryGenre
+      summary: Get the top songs for a specific country and genre
+      parameters:
+      - in: path
+        name: country
+        schema:
+            type: string
+        required: true
+        description: The country for which to get the top songs.
+      - in: path
+        name: genre
+        schema:
+            type: string
+        required: true
+        description: The genre for which to get the top songs.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /top_songs/genre/{genre}:
+    get:
+      operationId: topSongsGenre
+      summary: Get the top songs for a specific genre
+      parameters:
+      - in: path
+        name: genre
+        schema:
+            type: string
+        required: true
+        description: The genre for which to get the top songs.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+  /.well-known/ai-plugin.json:
+    get:
+      operationId: manifest
+      summary: Get the AI plugin manifest
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
