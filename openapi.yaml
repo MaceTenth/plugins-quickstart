@@ -13,7 +13,7 @@ info:
     
   version: 'v1'
 servers:
-  - url: https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai
+  - url: https://rising-analogy-387407.uc.r.appspot.com
 paths:
   /top_songs:
     get:

@@ -9,14 +9,14 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/openapi.yaml",
+    "url": "https://rising-analogy-387407.uc.r.appspot.com/openapi.yaml",
     "is_user_authenticated": false
   },
   "ui": {
     "elements": [
       {
         "type": "image",
-        "url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/logo.png",
+        "url": "https://rising-analogy-387407.uc.r.appspot.com//logo.png",
         "altText": "Trending Music Logo"
       },
       {
@@ -33,7 +33,7 @@
       }
     ]
   },
-  "logo_url": "https://us-central1-ffdsw4r3e.cloudfunctions.net/trending_music_ai/logo.png",
+  "logo_url": "https://rising-analogy-387407.uc.r.appspot.com/logo.png",
   "contact_email": "macetenth@gmail.com",
   "legal_info_url": "http://example.com/legal"
 }
